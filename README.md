@@ -59,8 +59,8 @@ More info: https://facebook.github.io/react/docs/update.html#available-commands
 
 ## Environments
 
-* 코드의 실행은 node.js v8.8.1 을 기준으로 합니다. (`.node-version` 파일 참조 )
-  * 따라서 대부분의 ES2015 문법이 사용 가능합니다.
+* 코드의 실행은 node.js 최신 LTS를 기준으로 합니다. (작성일 기준 12.13.1)
+  * 따라서 대부분의 최신 문법이 사용 가능합니다.
 
 ## What to do
 
@@ -81,7 +81,7 @@ console.log(state.todos === nextState.todos); // true
 ## How to do
 
 * Github 에 repository 를 만들어주세요.
-  * 혹은 이 welcome repo 를 fork 해주세요.
+  * 혹은 이 CodingTest repo 를 fork 해주세요.
 * 모든 코드의 변경 과정을 잘 정리해서 commit 해주세요.
   * commit message 도 잘 적어주세요.
 * 제한 시간 안에 마무리하신 후 메일로 마무리했다는 것을 알려주세요.
