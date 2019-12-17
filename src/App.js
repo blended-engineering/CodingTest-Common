@@ -46,17 +46,33 @@ module.exports = function update(prevState, changes) {
 
   getAllKeys(changes); // 위 재귀함수를 실행해서 key와 value를 구함
 
-  let evalPrevState = 'copiedPrevState'; // eval을 문자열 전환
-  for (key of keyArr) {
-    evalPrevState += `.${key}`;
-  } // for문으로 eval을 위한 문자열 생성
-  let evalResult =
-    evalPrevState +
-    ` = ${
-      typeof changedValue === 'string'
-        ? JSON.stringify(changedValue)
-        : changedValue
-    }`; // 생성된 key값에 value값을 붙임  copiedPrevState.a.c = 'f'
-  eval(evalResult); // eval을 실행하여 새로운 값을 반환
+  const getLastValue = (obj, arr, val) => {
+    // while문을 통해 arr의 length 가 0이 될 때까지 순환
+    while (arr.length) {
+      if (arr.length === 1) {
+        // arr length 가 1 일때
+        obj[arr.shift()] = val; // 마지막 객체의 키 값에 value값을 바로 적용하고, shift()로 인해 length는 0으로 변함
+      } else {
+        obj = obj[arr.shift()];
+      }
+    }
+  };
+
+  getLastValue(copiedPrevState, keyArr, changedValue); // 위 함수를 이용해서 copiedPrevState의 값을 변환
+
   return copiedPrevState;
+
+  // let evalPrevState = 'copiedPrevState'; // eval을 문자열 전환
+  // for (key of keyArr) {
+  //   evalPrevState += `.${key}`;
+  // } // for문으로 eval을 위한 문자열 생성
+  // let evalResult =
+  //   evalPrevState +
+  //   ` = ${
+  //     typeof changedValue === 'string'
+  //       ? JSON.stringify(changedValue)
+  //       : changedValue
+  //   }`; // 생성된 key값에 value값을 붙임  copiedPrevState.a.c = 'f'
+  // eval(evalResult); // eval을 실행하여 새로운 값을 반환
+  // return copiedPrevState;
 };
