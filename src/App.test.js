@@ -23,6 +23,7 @@ describe('update', () => {
 
     it('reuses state on different branches', () => {
       expect(state.unChanged).toStrictEqual(nextState.unChanged);
+      // changed toBe -> toStrictEqual
     });
   });
 

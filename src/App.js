@@ -57,9 +57,7 @@ module.exports = function update(prevState, changes) {
       }
     }
   };
-
   getLastValue(copiedPrevState, keyArr, changedValue); // 위 함수를 이용해서 copiedPrevState의 값을 변환
-
   return copiedPrevState;
 
   // let evalPrevState = 'copiedPrevState'; // eval을 문자열 전환
