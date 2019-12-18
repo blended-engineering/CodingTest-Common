@@ -22,7 +22,7 @@ module.exports = function update(prevState, changes) {
     return valueData(copiedPrevState); // apply는 주어진 함수를 사용해 copy된 결과값을 변경
   } else if (funcName === '$merge') {
     // $merge의 경우
-    return Object.assign(copiedPrevState, valueData); // copy에 새로운 객체를 붙여서 반환
+    return Object.assign({}, copiedPrevState, valueData); // copy에 새로운 객체를 붙여서 반환
   } else if (funcName === '$set') {
     // $set의 경우
     return valueData; // 바로 변경이기 때문에 변경하는 값을 바로 반환해도 무관
